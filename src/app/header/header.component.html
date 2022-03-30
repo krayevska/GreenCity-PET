@@ -1,11 +1,21 @@
-<div class="header">
-    <h2>PET project for GreenCity Internship</h2>
-    <div class="dropdown">
-        <button class="dropbtn">Language</button>
-            <div class="dropdown-content">
-                <a (click)="useLanguage('en')">English</a>
-                <a (click)="useLanguage('it')">Italian</a>
-            </div>
-    </div> 
-</div>
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<body>
+    <div class="header">
+        <!-- <h2>PET project for GreenCity Internship</h2> -->
+        <h2 [innerHTML]="'appTitle' | translate"></h2>
+        
+
+
+        <div class="dropdown">
+            <button class="dropbtn">Language</button>
+                <div class="dropdown-content">
+                    <a [routerLink]="" (click)="useLanguage('en')">English</a>
+                    <a [routerLink]="" (click)="useLanguage('it')">Italian</a>
+                </div>
+        </div> 
+    </div>
+</body>
+</html>
