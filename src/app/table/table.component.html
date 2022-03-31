@@ -1,4 +1,10 @@
-    <div class="table" (scroll)="onScroll()">
+    <div class="search-div">
+        <label for="search">Search</label>
+        <input type="text" id="search">
+    </div>
+    
+    
+    <div class="table-div" (scroll)="onScroll()">
         <table>
             <tr *ngFor="let data of dataFromServer">
                 <td>{{ data.id }}</td>

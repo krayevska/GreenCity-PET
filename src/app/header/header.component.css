@@ -29,6 +29,7 @@ h2 {
     font-size: 16px;
     /* border: 3px solid orange; */
     cursor: pointer;
+    border-radius: 3px;
     /* position: relative;
     left: 400px; */
   }
@@ -38,7 +39,6 @@ h2 {
     display: inline-block;
     position: relative;
     left: 300px;
-    
   }
   
   /* Dropdown Content (Hidden by Default) */
@@ -52,6 +52,7 @@ h2 {
     width: 100%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    border-radius: 3px;
   }
   
   /* Links inside the dropdown */
