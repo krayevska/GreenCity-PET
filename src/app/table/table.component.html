@@ -6,11 +6,11 @@
     
     <div class="table-div" (scroll)="onScroll()">
         <table>
-            <tr *ngFor="let data of dataFromServer">
-                <td>{{ data.id }}</td>
-                <td>{{ data.name }}</td>
-                <td>{{ data.username }}</td>
-                <td>{{ data.email }}</td>
+            <tr *ngFor="let user of users">
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
             </tr>  
         </table>
     </div>

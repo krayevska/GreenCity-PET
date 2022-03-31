@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import { User } from '../types';
 
 @Component({
   selector: 'app-table',
@@ -8,43 +9,35 @@ import { HttpClient} from '@angular/common/http';
 })
 
 export class TableComponent implements OnInit {
-
-  dataFromServer;  
+  users: User[] = [];  
   numberOfUsers: string = "5";
-  startIndex: string = "0";
+  startIndex = -5;
   url: string = `https://jsonplaceholder.typicode.com/users?_limit=5&_start=${this.startIndex}`;
-  wasThereScroll: boolean = false;
+  canGetUsers: boolean = true;
+  
+  constructor(private http: HttpClient){}
 
-  constructor(private http: HttpClient){
-    this.tablePromise.then(response => {
-        this.dataFromServer = response;
-      },
-      error => {
-        console.log("Error happened with dummy promise:", error)
-      }
-    )
-  }
-
-  tablePromise = new Promise((resolve, reject) => {
-    this.http.get(this.url).subscribe( data => {
-      this.dataFromServer = data;
-      this.startIndex = '5';
-    });
-  });
-
-  onScroll(){
-    if(!this.wasThereScroll){
-      this.url = `https://jsonplaceholder.typicode.com/users?_limit=5&_start=${this.startIndex}`;
-      this.tablePromise = new Promise((resolve, reject) => {
-        this.http.get(this.url).subscribe( data => {
-          this.dataFromServer = [...this.dataFromServer, ...data[Symbol.iterator]()];
-        });
+  getUsers = () => {
+    if(this.canGetUsers) {
+      this.startIndex += 5;
+      const url = `https://jsonplaceholder.typicode.com/users?_limit=5&_start=${this.startIndex}`;
+           
+      this.http.get(url).subscribe((data: User[]) => {
+        if(data.length){
+          this.users.push(...data);
+        } else {
+          this.canGetUsers = false;
+        }
       });
-      this.wasThereScroll = true;
     }
   }
+  
+  onScroll(){
+    this.getUsers();
+  }
 
-    ngOnInit(): void {
-    }
+  ngOnInit(): void {
+    this.getUsers();
+  }
 
   }
