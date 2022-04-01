@@ -2,6 +2,7 @@ td {
     border: 1px solid #379683;
     padding: 10px;
     font-size: 16px;
+    text-align: center;
 }
 
 .table-div {
@@ -11,6 +12,14 @@ td {
     border: 2px solid #379683;
 }
 
+table {
+    width: 100%;
+}
+
+input, table, .table-div  {
+    border-radius: 3px;
+}
+
 .search-div {
     margin-bottom: 40px;
     display: flex;
@@ -18,12 +27,4 @@ td {
     flex-wrap: wrap;
     column-gap: 10px;
     font-size: 20px;
-}
-
-table {
-    width: 100%;
-}
-
-input, table, .table-div  {
-    border-radius: 3px;
 }

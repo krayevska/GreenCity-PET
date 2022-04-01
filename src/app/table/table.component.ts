@@ -10,34 +10,33 @@ import { User } from '../types';
 
 export class TableComponent implements OnInit {
   users: User[] = [];  
-  numberOfUsers: string = "5";
-  startIndex = -5;
-  url: string = `https://jsonplaceholder.typicode.com/users?_limit=5&_start=${this.startIndex}`;
+  startIndex = 0;
   canGetUsers: boolean = true;
+  timer;
   
   constructor(private http: HttpClient){}
 
   getUsers = () => {
     if(this.canGetUsers) {
-      this.startIndex += 5;
       const url = `https://jsonplaceholder.typicode.com/users?_limit=5&_start=${this.startIndex}`;
-           
       this.http.get(url).subscribe((data: User[]) => {
         if(data.length){
           this.users.push(...data);
+          this.startIndex += 5;
         } else {
           this.canGetUsers = false;
         }
       });
     }
   }
-  
+
   onScroll(){
-    this.getUsers();
+    window.clearTimeout(this.timer);
+    this.timer = window.setTimeout(this.getUsers, 250);
   }
 
   ngOnInit(): void {
     this.getUsers();
   }
 
-  }
+}
