@@ -13,6 +13,7 @@ export class TableComponent implements OnInit {
   startIndex = 0;
   canGetUsers: boolean = true;
   timer;
+  pattern: string;
   
   constructor(private http: HttpClient){}
 
@@ -28,6 +29,7 @@ export class TableComponent implements OnInit {
         }
       });
     }
+    
   }
 
   onScroll(){
@@ -38,5 +40,7 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
     this.getUsers();
   }
+
+  
 
 }
