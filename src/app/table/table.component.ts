@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, AfterViewInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { User } from '../types';
 
@@ -13,8 +13,7 @@ export class TableComponent implements OnInit {
   startIndex = 0;
   canGetUsers: boolean = true;
   timer;
-  pattern: string;
-  
+    
   constructor(private http: HttpClient){}
 
   getUsers = () => {
@@ -41,6 +40,4 @@ export class TableComponent implements OnInit {
     this.getUsers();
   }
 
-  
-
-}
+  }

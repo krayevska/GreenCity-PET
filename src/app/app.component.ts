@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, PLATFORM_ID, Optional } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 
  export class AppComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit(): void {
