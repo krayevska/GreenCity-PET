@@ -15,13 +15,15 @@ export class FilterPipe implements PipeTransform {
     }
 
     return users.filter(user => {
+      console.log("filter")
       let firstName = user.name.split(" ")[0];
       let lastName = user.name.split(" ")[1];
       return firstName.toLocaleLowerCase().startsWith(patern.toLocaleLowerCase()) ||
              lastName.toLocaleLowerCase().startsWith(patern.toLocaleLowerCase())
     }); 
 
-    // return users.filter(user => user.name.toLocaleLowerCase().startsWith(patern.toLocaleLowerCase()));
-  }
+  //   // return users.filter(user => user.name.toLocaleLowerCase().startsWith(patern.toLocaleLowerCase()));
+  // }
 
+}
 }

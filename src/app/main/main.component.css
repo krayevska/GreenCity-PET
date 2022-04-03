@@ -4,5 +4,13 @@ div{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 150px;
+    margin-top: 50px;
+}
+
+app-search{
+    border: 2px solid red;
+}
+
+app-table{
+    border: 2px solid orange;
 }

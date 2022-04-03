@@ -9,15 +9,15 @@ import { Input, Output, EventEmitter } from '@angular/core'
 export class SearchComponent implements OnInit {
 
   pattern: string;
+  searchPattern: string;
 
   constructor() { }
 
-  @Output() currentPattern = new EventEmitter<any>();
-
   sendPattern(){
-    this.currentPattern.emit(this.pattern);
+    console.log("pattern ", this.pattern);
+    // this.searchPattern = this.pattern;
+    // console.log("array ", this.searchPattern);
   }
-
 
   ngOnInit(): void {
   }

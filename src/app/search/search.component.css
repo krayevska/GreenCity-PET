@@ -9,4 +9,5 @@ input  {
     flex-wrap: wrap;
     column-gap: 10px;
     font-size: 20px;
+    border: 2px solid blue;
 }

@@ -7,14 +7,11 @@ import { Component, OnInit, Inject, PLATFORM_ID, Optional } from '@angular/core'
   styleUrls: ['./app.component.css']
 })
 
- export class AppComponent implements OnInit {
+export class AppComponent implements OnInit {
   
   constructor() { }
 
   ngOnInit(): void {
   }
-
-
-
 }
  
