@@ -18,15 +18,11 @@ export class TableComponent implements OnInit{
   constructor(private http: HttpClient){}
 
   getUsers = () => {
-    console.log("get usrs")
     if(this.canGetUsers) {
       const url = `https://jsonplaceholder.typicode.com/users?_limit=5&_start=${this.startIndex}`;
-      console.log("url ", url)
       this.http.get(url).subscribe((data: User[]) => {
-        console.log("data length ", data)
         if(data.length){
           this.users.push(...data);
-          console.log("data ", data)
           this.startIndex += 5;
 
         } else {
@@ -42,7 +38,6 @@ export class TableComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    console.log("onInit")
     this.getUsers();
   }
 

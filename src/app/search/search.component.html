@@ -1,5 +1,5 @@
 <div class="search-div">
-    <label for="search">Search</label>
+    <label for="search" [innerHTML]="'search' | translate"></label>
     <input type="text" id="search" [(ngModel)]="pattern" (input)="sendPattern()">
     <!-- <input type="text" id="search" [(ngModel)]="pattern"> -->
 </div>

@@ -14,7 +14,7 @@ export class SearchComponent implements OnInit {
   constructor() { }
 
   sendPattern(){
-    console.log("pattern ", this.pattern);
+    console.log("pattern in sendPattern", this.pattern);
     // this.searchPattern = this.pattern;
     // console.log("array ", this.searchPattern);
   }
