@@ -1,8 +1,7 @@
      
     <div class="table-div" (scroll)="onScroll()">
         <table>
-            <tr *ngFor="let user of users">
-            <!-- <tr *ngFor="let user of users | filter: pattern">     -->
+            <tr *ngFor="let user of users | filter: pattern">    
                 <td>{{ user.id }}</td>
                 <td>{{ user.name }}</td>
                 <td>{{ user.username }}</td>

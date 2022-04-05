@@ -13,6 +13,7 @@ import { MainComponent } from './main/main.component';
 import { TableComponent } from './table/table.component';
 import { FilterPipe } from './filter.pipe';
 import { SearchComponent } from './search/search.component';
+import { DataService } from './data.service';
 
 export function TranslationLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -39,7 +40,7 @@ export function TranslationLoaderFactory(http: HttpClient) {
       loader: {provide: TranslateLoader, useFactory: TranslationLoaderFactory, deps: [HttpClient]}
     })
   ],
-  providers: [],
+  // providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

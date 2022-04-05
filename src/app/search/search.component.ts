@@ -1,25 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { Input, Output, EventEmitter } from '@angular/core'
+import { Component, OnInit, OnDestroy  } from '@angular/core';
+import { DataService } from "../data.service";
+import { Subscription, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent implements OnInit {
 
+export class SearchComponent implements OnInit, OnDestroy  {
   pattern: string;
-  searchPattern: string;
+  subscription: Subscription;
 
-  constructor() { }
-
-  sendPattern(){
-    console.log("pattern in sendPattern", this.pattern);
-    // this.searchPattern = this.pattern;
-    // console.log("array ", this.searchPattern);
-  }
+  constructor(private data: DataService) { }
 
   ngOnInit(): void {
+    this.subscription = this.data.currentPattern.subscribe(pattern => this.pattern = pattern)
   }
 
+  changePattern(){
+    this.data.changePattern(this.pattern)
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 }

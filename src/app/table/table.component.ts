@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { User } from '../types';
+import { DataService } from "../data.service";
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -9,13 +11,15 @@ import { User } from '../types';
   styleUrls: ['./table.component.css']
 })
 
-export class TableComponent implements OnInit{
+export class TableComponent implements OnInit, OnDestroy {
   users: User[] = [];  
   startIndex = 0;
   canGetUsers: boolean = true;
   timer;
+  pattern: string;
+  subscription: Subscription;
      
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient, private dataService: DataService) {}
 
   getUsers = () => {
     if(this.canGetUsers) {
@@ -24,7 +28,6 @@ export class TableComponent implements OnInit{
         if(data.length){
           this.users.push(...data);
           this.startIndex += 5;
-
         } else {
           this.canGetUsers = false;
         }
@@ -38,7 +41,14 @@ export class TableComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.subscription = this.dataService.currentPattern.subscribe(pattern => {
+      this.pattern = pattern;
+    });
     this.getUsers();
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }
