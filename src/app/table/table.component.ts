@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { RouterModule, Router } from '@angular/router';
 import { HttpClient} from '@angular/common/http';
 import { User } from '../types';
 import { DataService } from "../data.service";
@@ -19,7 +20,9 @@ export class TableComponent implements OnInit, OnDestroy {
   pattern: string;
   subscription: Subscription;
      
-  constructor(private http: HttpClient, private dataService: DataService) {}
+  constructor(private http: HttpClient, 
+              private dataService: DataService, 
+              private router: Router) {}
 
   getUsers = () => {
     if(this.canGetUsers) {
@@ -33,6 +36,17 @@ export class TableComponent implements OnInit, OnDestroy {
         }
       });
     }
+  }
+
+  onUserClick(e: Event): void {
+    let target = e.target || e.currentTarget;
+    let elementId = (target as Element).id;
+    let name = this.users[Number(elementId) - 1].name;
+    // let name = this.users[Number(elementId) - 1].name.replace(" ", "");
+    // console.log("element id ", elementId); 
+    // console.log("name ", name, " typeof ", typeof name, " repl ", name.replace(" ", ""));  
+    this.router.navigate(["features", elementId, name]);
+
   }
 
   onScroll(){

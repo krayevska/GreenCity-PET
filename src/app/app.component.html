@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<body>
-  <div class="container flex-container">
-    <div class="header">
-      <div>
-        <app-header></app-header>
-      </div>
-        
-    </div>
-    <div class="main">
-        <app-main></app-main>
-    </div>
-    <div class="footer">
-          <app-footer></app-footer>
-    </div>
+<div class="container flex-container">
+  <div class="header">
+    <app-header></app-header>
   </div>
-</body> 
-</html>   
+  <div class="main">
+    <!-- <app-main></app-main> -->
+    <router-outlet></router-outlet>
+  </div>
+  <div class="footer">
+    <app-footer></app-footer>
+  </div>
+</div>
+

@@ -4,6 +4,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,10 +15,17 @@ import { TableComponent } from './table/table.component';
 import { FilterPipe } from './filter.pipe';
 import { SearchComponent } from './search/search.component';
 import { DataService } from './data.service';
+import { FeaturesComponent } from './features/features.component';
 
 export function TranslationLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
+
+const appRoutes: Routes = [
+  // { path: '', component: AppComponent },
+  { path: '', component: MainComponent },
+  { path: 'features/:id/:name', component: FeaturesComponent },
+];
 
 @NgModule({
   declarations: [
@@ -27,7 +35,8 @@ export function TranslationLoaderFactory(http: HttpClient) {
     MainComponent,
     TableComponent,
     FilterPipe,
-    SearchComponent
+    SearchComponent,
+    FeaturesComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +47,11 @@ export function TranslationLoaderFactory(http: HttpClient) {
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {provide: TranslateLoader, useFactory: TranslationLoaderFactory, deps: [HttpClient]}
-    })
+    }),
+    RouterModule.forRoot(
+      appRoutes,
+      // { enableTracing: true } 
+    )
   ],
   // providers: [DataService],
   bootstrap: [AppComponent]

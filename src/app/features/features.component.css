@@ -1,0 +1,20 @@
+button  {
+    border-radius: 3px;
+    display: block;
+    background-color: #379683;
+    color: #EDF5E1;
+
+}
+
+h1 {
+    display: block;
+}
+
+div {
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    
+}

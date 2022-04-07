@@ -20,3 +20,8 @@ table, .table-div  {
     border-radius: 3px;
 }
 
+tr:hover {
+    background-color: #379683;
+    color: #EDF5E1;
+    cursor: pointer;
+}
