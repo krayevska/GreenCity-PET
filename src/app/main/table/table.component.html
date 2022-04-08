@@ -1,0 +1,15 @@
+     
+    
+    <div class="table-container" (scroll)="onScroll()">
+        <div *ngIf="(users | filter: pattern).length === 0" class="table-pattern-fail-text">Sorry, no users were found matching your search</div>
+        <table class="users-table">
+            <tr *ngFor="let user of users | filter: pattern" (click)="onUserClick($event)" class="users-table-row">    
+                <td id="{{ user.id }}" class="users-table-block">{{ user.id }}</td>
+                <td id="{{ user.id }}" class="users-table-block">{{ user.name }}</td>
+                <td id="{{ user.id }}" class="users-table-block">{{ user.username }}</td>
+                <td id="{{ user.id }}" class="users-table-block">{{ user.email }}</td>
+            </tr>  
+        </table>
+    </div>
+    
+    

@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { HttpClient} from '@angular/common/http';
-import { User } from '../types';
-import { DataService } from "../data.service";
+import { User } from '../../types';
+import { DataService } from "../../data.service";
 import { Subscription } from 'rxjs';
 
 
@@ -42,9 +42,6 @@ export class TableComponent implements OnInit, OnDestroy {
     let target = e.target || e.currentTarget;
     let elementId = (target as Element).id;
     let name = this.users[Number(elementId) - 1].name;
-    // let name = this.users[Number(elementId) - 1].name.replace(" ", "");
-    // console.log("element id ", elementId); 
-    // console.log("name ", name, " typeof ", typeof name, " repl ", name.replace(" ", ""));  
     this.router.navigate(["features", elementId, name]);
 
   }

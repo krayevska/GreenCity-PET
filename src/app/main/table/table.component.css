@@ -1,0 +1,36 @@
+.table-container {
+    width: 800px;
+    height: 210px;
+    overflow-y: scroll;
+    border: 2px solid #379683;
+    border-radius: 3px;
+}
+
+.users-table {
+    width: 100%;
+    border-radius: 3px;
+}
+
+.users-table-row:hover {
+    background-color: #379683;
+    color: #EDF5E1;
+    cursor: pointer;
+}
+
+.users-table-block {
+    border: 1px solid #379683;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.table-pattern-fail-text{
+    text-align: center;
+    margin-top: 50px;
+    color: orange;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+

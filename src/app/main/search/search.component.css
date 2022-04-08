@@ -1,12 +1,12 @@
-input  {
-    border-radius: 3px;
-}
-
-.search-div {
+.search-container {
     margin-bottom: 40px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     column-gap: 10px;
     font-size: 20px;
+}
+
+.search-input  {
+    border-radius: 3px;
 }

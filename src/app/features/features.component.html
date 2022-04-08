@@ -1,6 +1,7 @@
-<div>
-    <p>{{ user.name }} details</p>
-    <button (click)="goBack()">Go back</button>
+<div class="user-details">
+    <div class="user-details-text">{{ user.name }} <span class="user-details-span">{{ 'details' | translate }}</span></div>
+    <button (click)="goBack()" [innerHTML]="'goBack' | translate" class="go-back-button">Go back</button>
 </div>
+
 
 

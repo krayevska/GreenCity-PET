@@ -11,9 +11,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
-import { TableComponent } from './table/table.component';
+import { TableComponent } from './main/table/table.component';
 import { FilterPipe } from './filter.pipe';
-import { SearchComponent } from './search/search.component';
+import { SearchComponent } from './main/search/search.component';
 import { DataService } from './data.service';
 import { FeaturesComponent } from './features/features.component';
 
