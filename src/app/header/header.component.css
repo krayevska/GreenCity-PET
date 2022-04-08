@@ -1,18 +1,22 @@
 .header {
     background-color: #379683;
     color: #EDF5E1;
-    width:100%;
     height: 120px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: row;
+    padding: 0 20px;
 }
 
 .header-text {
-    position: relative;
-    right: 300px;
+    margin: 0;
 } 
+
+@media screen and (max-width: 700px) {
+  .header-text {
+    font-size: 14px;
+  }
+}
 
 .header-dropdown-btn {
     background-color: #EDF5E1;
@@ -24,9 +28,7 @@
 }
   
 .header-dropdown {
-    display: inline-block;
     position: relative;
-    left: 300px;
 }
     
 .header-dropdown-content {

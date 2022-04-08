@@ -1,4 +1,8 @@
-.app-container {
+* {
+    box-sizing: border-box;
+}
+
+.app {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -7,11 +11,12 @@
     padding: 0;
 }
 
-.main-component {
+.app-main {
     background-color: #EDF5E1;
     color: #379683;
     flex: 1;
     width:100%;
+    padding:70px 20px;
 }
 
 
