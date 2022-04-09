@@ -1,7 +1,7 @@
      
     
     <div class="table-wrapper" (scroll)="onScroll()">
-        <div *ngIf="(users | filter: pattern).length === 0" class="table-empty">Sorry, no users were found matching your search</div>
+        <!-- <div *ngIf="(users | filter: pattern).length === 0" class="table-empty">Sorry, no users were found matching your search</div> -->
         <table class="table">
             <tr *ngFor="let user of users | filter: pattern" (click)="onUserClick($event)" class="table-row">    
                 <td id="{{ user.id }}" class="table-cell">{{ user.id }}</td>

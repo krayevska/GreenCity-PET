@@ -27,8 +27,9 @@
     background-color: #EDF5E1;
     color: #379683;;
     font-size: 20px;
-    width: 150px;
+    width: 170px;
     height: 50px;
+    font-weight: bold;
 }
 
 .go-back-button:hover {

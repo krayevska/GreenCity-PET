@@ -1,5 +1,5 @@
 <div class="user-details">
-    <table class="details-table">
+    <table *ngIf="user" class="details-table">
         <tr>
             <td>first and last name:</td>
             <td class="user-data">{{ user.name }}</td>
@@ -14,15 +14,15 @@
         <tr> 
         <tr>
             <td>phone:</td>
-            <td class="user-data">{{ user.phone }}</td>
+            <td class="user-data"><a [href]="'tel:'+user.phone">{{ user.phone }}</a></td>
         <tr>  
         <tr>
             <td>email:</td>
-            <td class="user-data">{{ user.email }}</td>
+            <td class="user-data"><a [href]="'mailto:'+user.email">{{ user.email }}</a></td>
         <tr>
         <tr>
             <td>website:</td>
-            <td class="user-data">{{ user.website }}</td>
+            <td class="user-data"><a [href] = "'https://www.' + user.website" target="_blank" id="website">{{ user.website }}</a></td>
         <tr>   
     </table>
         
