@@ -25,6 +25,7 @@
     font-size: 18px;
     cursor: pointer;
     border-radius: 3px;
+    min-width: 130px;
 }
   
 .header-dropdown {

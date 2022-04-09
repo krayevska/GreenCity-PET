@@ -3,7 +3,7 @@
     <h2 [innerHTML]="'appTitle' | translate" class="header-text"></h2>
 
     <div class="header-dropdown">
-        <button class="header-dropdown-btn">Language</button>
+        <button class="header-dropdown-btn"  [innerHTML]="'lang' | translate" ></button>
             <div class="header-dropdown-content">
                 <a (click)="useLanguage('en')" class="header-dropdown-choice">English</a>
                 <a (click)="useLanguage('it')" class="header-dropdown-choice">Italian</a>

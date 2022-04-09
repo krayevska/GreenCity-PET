@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { UsersDataService } from '../users-data.service'
+import { User } from '../types'
 
 
 @Component({
@@ -8,36 +10,51 @@ import { Subscription } from 'rxjs';
   templateUrl: './features.component.html',
   styleUrls: ['./features.component.css']
 })
-export class FeaturesComponent implements OnInit, OnDestroy {
-  user: { id: number, name: string }
-  paramsSubscription: Subscription
+export class FeaturesComponent implements OnInit {
+  user: { 
+    id: number, 
+    name: string,
+    username: string,
+    email: string,
+    phone: string,
+    website: string,
+    company: string
+  };
+  paramsSubscription: Subscription;
+  usersDetalis: User[];
 
   constructor(private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private usersData: UsersDataService) { }
 
   ngOnInit(): void {
-    this.user = {
-      id: this.route.snapshot.params["id"],
-      name: this.route.snapshot.params["name"]
-    }
-    this.paramsSubscription = this.route.params.subscribe(
-      (params: Params) => {
-        this.user.id = params["id"];
-        this.user.name = params["name"];
-      }
-    )
-
-    console.log("user ", this.user)
     
+    let id: number = +this.route.snapshot.params["id"];
+    let currentUserDetails = this.usersData.usersDetails[id - 1];
+    
+    this.user = { 
+      id: id, 
+      name: currentUserDetails.name,
+      username: currentUserDetails.username,
+      email: currentUserDetails.email,
+      phone: currentUserDetails.phone,
+      website: currentUserDetails.website,
+      company: currentUserDetails.company.name
+    };
+   
+    // this.paramsSubscription = this.route.params.subscribe(
+    //   (params: Params) => {
+    //     this.user.id = params["id"];
+    //    }
+    // )
   }
 
-  ngOnDestroy(){
-    this.paramsSubscription.unsubscribe();
-  }
+  // ngOnDestroy(){
+  //   this.paramsSubscription.unsubscribe();
+  // }
 
   goBack(){
-    console.log("click")
-    // this.router.navigate(["../../"], { relativeTo: this.route});
+    this.usersData.usersDetails = [];
     this.router.navigate([""]);
   }
 

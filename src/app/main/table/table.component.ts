@@ -4,6 +4,7 @@ import { HttpClient} from '@angular/common/http';
 import { User } from '../../types';
 import { DataService } from "../../data.service";
 import { Subscription } from 'rxjs';
+import { UsersDataService } from '../../users-data.service'
 
 
 @Component({
@@ -22,7 +23,8 @@ export class TableComponent implements OnInit, OnDestroy {
      
   constructor(private http: HttpClient, 
               private dataService: DataService, 
-              private router: Router) {}
+              private router: Router,
+              private userData: UsersDataService) {}
 
   getUsers = () => {
     if(this.canGetUsers) {
@@ -30,12 +32,19 @@ export class TableComponent implements OnInit, OnDestroy {
       this.http.get(url).subscribe((data: User[]) => {
         if(data.length){
           this.users.push(...data);
+          this.userData.usersDetails.push(...data);
           this.startIndex += 5;
         } else {
           this.canGetUsers = false;
         }
       });
+    // console.log("this.users ", this.users)  
+    // this.userData.usersDetails = JSON.parse(JSON.stringify(this.users));
+    // console.log("this.usersDetails send from TABLE to SERVICE: ", this.userData.usersDetails)
+     this.userData.log();
     }
+    
+    
   }
 
   onUserClick(e: Event): void {

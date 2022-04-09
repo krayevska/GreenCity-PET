@@ -1,5 +1,4 @@
 .user-details {
-    margin-top: 150px;
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -7,8 +6,19 @@
     align-items: center;
 }
 
-.user-details-text{
-    font-size: 25px;
+.user-details td{
+    border: 2px solid #379683;
+    padding: 15px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.user-details table{
+    border: 3px solid #379683;
+}
+
+.user-data{
+    font-weight: bold;
 }
 
 .go-back-button  {
@@ -26,3 +36,6 @@
     color: #EDF5E1;
     cursor: pointer;
 }
+
+
+
