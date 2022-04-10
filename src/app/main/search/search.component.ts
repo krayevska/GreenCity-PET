@@ -12,14 +12,14 @@ export class SearchComponent implements OnInit, OnDestroy  {
   pattern: string;
   subscription: Subscription;
 
-  constructor(private data: DataService) { }
+  constructor(private searchData: DataService) { }
 
   ngOnInit(): void {
-    this.subscription = this.data.currentPattern.subscribe(pattern => this.pattern = pattern)
+    this.subscription = this.searchData.currentPattern.subscribe(pattern => this.pattern = pattern)
   }
 
   changePattern(){
-    this.data.changePattern(this.pattern)
+    this.searchData.changePattern(this.pattern)
   }
 
   ngOnDestroy(): void {

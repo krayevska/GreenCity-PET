@@ -1,10 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subscription, BehaviorSubject } from 'rxjs';
 import { UsersDataService } from '../users-data.service'
 import { User } from '../types'
 import { TranslateService } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
+import { DataService } from "../data.service";
+
 
 
 @Component({
@@ -13,67 +15,45 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./features.component.css']
 })
 
-export class FeaturesComponent implements OnInit, OnDestroy {
+export class FeaturesComponent implements OnInit {
   
   userDetails: User;
-  user: { 
-    id: number, 
-    name: string,
-    username: string,
-    email: string,
-    phone: string,
-    website: string,
-    company: string
-  };
+  user: User;
   paramsSubscription: Subscription;
-  usersLoaded = true;
-  
+  notFound: boolean = false;
+  errorMessage: string;
+      
   constructor(private router: Router,
               private route: ActivatedRoute,
               private usersData: UsersDataService,
-              private http: HttpClient) { }
+              private http: HttpClient,
+              private searchData: DataService) { }
 
   ngOnInit(): void {
-      
+      console.log("user ", this.user)
       let id: number = +this.route.snapshot.params["id"];
-      let filteredUsers = this.usersData.usersDetails.filter(item => item.id === id);
-
-      if( filteredUsers.length > 0 ) {
-        this.userDetails = filteredUsers[0];
-        this.user = { 
-          id: id, 
-          name: this.userDetails.name,
-          username: this.userDetails.username,
-          email: this.userDetails.email,
-          phone: this.userDetails.phone,
-          website: this.userDetails.website,
-          company: this.userDetails.company.name
-        };
-        
+      let userDetails = this.usersData.usersDetails.find(item => item.id === id);
+      
+      if(userDetails) {
+        this.user = userDetails;        
       } else {
-        this.usersLoaded = false;
-        let url = `https://jsonplaceholder.typicode.com/users?_limit=1&_start=${ id - 1 }`;
-        this.http.get(url).subscribe((data: User) => {
-          this.userDetails = data[0]; 
-          this.user = { 
-            id: id, 
-            name: this.userDetails.name,
-            username: this.userDetails.username,
-            email: this.userDetails.email,
-            phone: this.userDetails.phone,
-            website: this.userDetails.website,
-            company: this.userDetails.company.name
-          };
-        });
+        let url = `https://jsonplaceholder.typicode.com/users/${id}`;
+        console.log("url ", url)
+        this.http.get(url).subscribe(
+          (data: User) => this.user = data,
+          (error: any) => {
+            console.log('oops', error);
+            this.notFound = true;
+            this.errorMessage = error.message;
+          }
+        )
       }
+      
   }  
    
-  ngOnDestroy(){
-    this.router.navigate([""]);
-  }
-
   goBack(){
     this.usersData.usersDetails = [];
+    this.searchData.changePattern("");
     this.router.navigate([""]);
   }
 

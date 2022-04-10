@@ -2,15 +2,15 @@
     <table *ngIf="user" class="details-table">
         <tr>
             <td>first and last name:</td>
-            <td class="user-data">{{ user.name }}</td>
+            <td class="user-data"><strong>{{ user.name }}</strong></td>
         <tr>
         <tr>
             <td>username:</td>
-            <td class="user-data">{{ user.username }}</td>
+            <td class="user-data"><strong>{{ user.username }}</strong></td>
         <tr>  
         <tr>
             <td>company:</td>
-            <td class="user-data">{{ user.company }}</td>
+            <td class="user-data"><strong>{{ user.company.name }}</strong></td>
         <tr> 
         <tr>
             <td>phone:</td>
@@ -25,7 +25,10 @@
             <td class="user-data"><a [href] = "'https://www.' + user.website" target="_blank" id="website">{{ user.website }}</a></td>
         <tr>   
     </table>
-        
+    <div *ngIf="notFound" class="error">
+        <p><strong>Sorry, user has not been found</strong></p>
+        <p>{{ this.errorMessage }}</p>
+    </div>    
     <button (click)="goBack()" [innerHTML]="'goBack' | translate" class="go-back-button">Go back</button>
 </div>
 

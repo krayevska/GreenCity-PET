@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    --dark-green: #008000;
+    --light-green: #EDF5E1;
 }
 
 .app {
@@ -12,8 +14,8 @@
 }
 
 .app-main {
-    background-color: #EDF5E1;
-    color: #379683;
+    background-color: var(--light-green);
+    color: var(--dark-green);
     flex: 1;
     width:100%;
     padding:50px 20px;

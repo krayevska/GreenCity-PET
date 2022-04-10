@@ -1,19 +1,25 @@
+/* var(--dark-green);
+ var(--light-green); */
+
 .footer {
-    background-color: #379683;
-    color: #EDF5E1;
+    /* background-color: #379683; */
+    background-color: var(--dark-green);
+    color: black;
     height: 100px;
     display: flex;
+    flex-direction: column;
+
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 16px;
 } 
 
 .footer-link {
-    color: darkslategray;
+    color: black;
 }
 
 .footer-link:hover {
     cursor: pointer;
-    color: #EDF5E1;
+    color: var(--light-green);
     text-decoration: none;
 }

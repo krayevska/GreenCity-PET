@@ -22,7 +22,7 @@ export class TableComponent implements OnInit, OnDestroy {
   subscription: Subscription;
      
   constructor(private http: HttpClient, 
-              private dataService: DataService, 
+              private searchData: DataService, 
               private router: Router,
               private userData: UsersDataService) {}
 
@@ -38,10 +38,7 @@ export class TableComponent implements OnInit, OnDestroy {
           this.canGetUsers = false;
         }
       });
-    // console.log("this.users ", this.users)  
-    // this.userData.usersDetails = JSON.parse(JSON.stringify(this.users));
-    // console.log("this.usersDetails send from TABLE to SERVICE: ", this.userData.usersDetails)
-     this.userData.log();
+    
     }
     
     
@@ -61,7 +58,7 @@ export class TableComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.subscription = this.dataService.currentPattern.subscribe(pattern => {
+    this.subscription = this.searchData.currentPattern.subscribe(pattern => {
       this.pattern = pattern;
     });
     this.getUsers();

@@ -10,8 +10,4 @@ export class UsersDataService {
     
   }
 
-  log(){
-    console.log("usersDetails from INSIDE SERVICE: ", this.usersDetails)
-  }
-  
 }
