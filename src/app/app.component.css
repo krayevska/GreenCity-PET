@@ -4,6 +4,10 @@
     --light-green: #EDF5E1;
 }
 
+/* .button {
+    background-color: rebeccapurple;
+} */
+
 .app {
     display: flex;
     flex-direction: column;

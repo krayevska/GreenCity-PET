@@ -17,11 +17,19 @@
     margin: 0 auto 40px auto;
 }
 
+.user-details td a {
+    text-decoration: underline;
+}
+
+.user-details td a:hover {
+    color: var(--dark-green); 
+    text-decoration: none;
+}
+
 .go-back-button {
     border-radius: 3px;
-    border: 3px solid var(--dark-green);
-    background-color: var(--light-green);
-    color: var(--dark-green);
+    background-color: var(--dark-green);
+    color: var(--light-green);
     font-size: 20px;
     width: 170px;
     height: 50px;
@@ -29,8 +37,9 @@
 }
 
 .go-back-button:hover {
-    background-color: var(--dark-green);
-    color: var(--light-green);
+    border: 3px solid var(--dark-green);
+    background-color: var(--light-green);
+    color: var(--dark-green);
     cursor: pointer;
 }
 

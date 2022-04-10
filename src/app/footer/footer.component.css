@@ -2,7 +2,6 @@
  var(--light-green); */
 
 .footer {
-    /* background-color: #379683; */
     background-color: var(--dark-green);
     color: black;
     height: 100px;
