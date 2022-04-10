@@ -1,4 +1,4 @@
 <div class="search">
-    <label for="search" [innerHTML]="'search' | translate"></label>
+    <label for="search" [innerHTML]="'search' | translate" class="search-label"></label>
     <input type="text" id="search" [(ngModel)]="pattern" (input)="changePattern()" class="search-input">
 </div>

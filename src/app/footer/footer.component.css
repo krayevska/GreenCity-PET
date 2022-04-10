@@ -3,22 +3,21 @@
 
 .footer {
     background-color: var(--dark-green);
-    color: black;
+    color: var(--light-green);
     height: 100px;
     display: flex;
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
     font-size: 16px;
 } 
 
 .footer-link {
-    color: black;
+    color: var(--light-green);
+    text-decoration: underline;
 }
 
 .footer-link:hover {
-    cursor: pointer;
     color: var(--light-green);
     text-decoration: none;
 }

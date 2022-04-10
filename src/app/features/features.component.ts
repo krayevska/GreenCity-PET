@@ -38,11 +38,9 @@ export class FeaturesComponent implements OnInit {
         this.user = userDetails;        
       } else {
         let url = `https://jsonplaceholder.typicode.com/users/${id}`;
-        console.log("url ", url)
         this.http.get(url).subscribe(
           (data: User) => this.user = data,
           (error: any) => {
-            console.log('oops', error);
             this.notFound = true;
             this.errorMessage = error.message;
           }

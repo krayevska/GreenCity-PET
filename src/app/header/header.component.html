@@ -1,9 +1,9 @@
 <header class="header">
-    <img class="img" src="assets/images/forest.png" alt="green-leaf-image">
+   <a href="/"><img class="logo" src="assets/images/forest.png" alt="green-leaf-image"></a> 
     <h2 [innerHTML]="'appTitle' | translate" class="header-text"></h2>
 
     <div class="header-dropdown">
-        <button class="button header-dropdown-btn" [innerHTML]="'lang' | translate"></button>
+        <button class="button button-light header-dropdown-btn" [innerHTML]="'lang' | translate"></button>
             <div class="header-dropdown-content">
                 <a (click)="useLanguage('en')" class="header-dropdown-choice">English</a>
                 <a (click)="useLanguage('it')" class="header-dropdown-choice">Italian</a>
