@@ -1,3 +1,14 @@
+
+Requirements:<br>
+1 Create Components - Header, Footer<br>
+2 Add localization to any language other than English (add dropdown in header)<br>
+3 On main page draw a table and the data are taken from the placeholder (5) jsonplaceholder.typicode.com/users<br>
+4 Lazyloading is implemented for Table, ie when the user scrolls it adds data to the table (5 more)<br>
+5 Search for items by item (filter pipe)<br>
+6 When the user clicks on the item in the table it gets to the item page so url will be /features/:id/:username<br>
+
+
+
 # PetProject
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.15.
